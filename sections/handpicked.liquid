@@ -1,0 +1,128 @@
+<section class="handpicked-section">
+	<div class="contain">
+		<div class="row jcc aic">
+			<div class="section-title">
+				<h2><span>HandPicked</span></h2>
+			</div>
+		</div>
+		<div class="row jcsb">
+			<div class="cart-col left">
+				<div class="cart-box">
+					<div class="border">
+						<div class="owerlay-box"></div>
+						<img src="{{ 'img-shop.png' | asset_url }}" alt="">
+						<a href="#">Shop now</a>
+					</div>
+				</div>
+				<div class="cart-box">
+					<div class="border">
+						<div class="owerlay-box"></div>
+						<img src="{{ 'img-shop.png' | asset_url }}" alt="">
+						<a href="#">Shop now</a>
+					</div>
+				</div>
+			</div>
+			<div class="cart-col center">
+				<div class="cart-box cart-box-center">
+					<div class="border">
+						<div class="owerlay-box"></div>
+						<img src="{{ 'girl.png' | asset_url }}" alt="">
+						<a href="#">Shop now</a>
+					</div>
+				</div>
+			</div>
+			<div class="cart-col right">
+				<div class="cart-box">
+					<div class="border">
+						<div class="owerlay-box"></div>
+						<img src="{{ 'img-shop.png' | asset_url }}" alt="">
+						<a href="#">Shop now</a>
+					</div>
+				</div>
+				<div class="cart-box">
+					<div class="border">
+						<div class="owerlay-box"></div>
+						<img src="{{ 'img-shop.png' | asset_url }}" alt="">
+						<a href="#">Shop now</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+{% schema %}
+{
+	"name": {
+	"en": "HandPicked"
+},
+"class": "handpicked-section",
+"max_blocks": 3,
+"presets": [
+{
+	"name": {
+	"en": "HandPicked"
+},
+"category": {
+"en": "Sections"
+},
+"blocks": [
+{
+	"type": "image"
+}
+]
+}
+],
+"blocks": [
+{
+	"type": "image",
+	"name": {
+	"en": "HandPicked"
+},
+"settings": [
+{
+	"type": "text",
+	"id": "title",
+	"label": {
+	"en": "Title handpicked"
+}
+},
+{
+	"type": "text",
+	"id": "content",
+	"label": {
+	"en": "Text handpicked"
+}
+},
+{
+	"type": "image_picker",
+	"id": "slide",
+	"label": {
+	"en": "Image"
+},
+"info": {
+"en": "1000 x 500px recommended"
+}
+},
+{
+	"type": "color",
+	"id": "background",
+	"label": {
+	"en": "Background"
+},
+"default": "#d9bf8f"
+}
+]
+}
+]
+}
+
+
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

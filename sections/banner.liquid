@@ -1,0 +1,117 @@
+<section class="banner-section">
+	<div class="contain">
+		<div class="row jcsb aic">
+			{% for block in section.blocks %}
+			{%- assign image = block.settings.slide -%}
+
+		    {%- capture img_wrapper_id -%}slideShowImageWrapper-{{ section.id }}-{{ image.id }}{%- endcapture -%}
+		    {%- assign max_width = 1000 -%}
+		    {%- assign max_height = 1500 -%}
+
+		    {%- include 'image-logic' with width: max_width, height: max_height -%}
+
+		    {%- assign img_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+			<div class="banner" style="background: {{ block.settings.background }};">
+				<span class="before"></span>
+				<img src="{{ image | img_url: '38x' }}" alt="">
+				<div class="info">
+					<h2 class="title">{{ block.settings.title }}</h2>
+					<p class="content">{{ block.settings.content }}</p>
+				</div>
+				<span class="after"></span>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+
+{% comment %}<div id="textsection">
+	<div class="simpletext">
+		<h1>{{ section.settings.text-box }}</h1>
+		<h3>{{ section.settings.text }}</h3>
+	</div>
+</div>{% endcomment %}
+
+{% schema %}
+{
+	"name": {
+		"en": "Banner"
+	},
+	"class": "banner-section",
+	"max_blocks": 3,
+	"presets": [
+		{
+			"name": {
+			"en": "Banner"
+			},
+			"category": {
+				"en": "Sections"
+			},
+			"blocks": [
+				{
+					"type": "image"
+				}
+			]
+		}
+	],
+	"blocks": [
+		{
+			"type": "image",
+			"name": {
+				"en": "Banner"
+			},
+			"settings": [
+				{
+					"type": "text",
+					"id": "title",
+					"label": {
+						"en": "Title banner"
+					}
+				},
+				{
+					"type": "text",
+					"id": "content",
+					"label": {
+						"en": "Text banner"
+					}
+				},
+				{
+					"type": "image_picker",
+					"id": "slide",
+					"label": {
+					"en": "Image"
+					},
+					"info": {
+						"en": "1000 x 500px recommended"
+					}
+				},
+				{
+					"type": "color",
+					"id": "background",
+					"label": {
+						"en": "Background"
+					},
+        			"default": "#d9bf8f"
+				}
+			]
+		}
+	]
+}
+
+
+
+
+
+
+
+
+
+
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
