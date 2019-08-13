@@ -1,0 +1,102 @@
+<section class="customers-says-section">
+	<div class="contain">
+		<div class="row">
+			<div class="section-title">
+				<h2><span>{{ section.settings.section-title }}</span></h2>
+			</div>
+		</div>
+	</div>
+	<div class="contain-full customers-contain">
+		<div class="row">
+			<div class="contain">
+				<div class="row jcsb customers-row">
+					
+					{% for block in section.blocks %}
+						{%- assign image = block.settings.img -%}
+						{%- assign img_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+						<div class="customer-box">
+							<div class="image">
+								<img src="{{ image | img_url: '250x' }}" alt="">
+							</div>
+							<div class="info">
+								<span class="text">{{ block.settings.message }}</span>
+								<h3 class="name">{{ block.settings.name }}</h3>
+								<span class="category">{{ block.settings.category }}</span>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% schema %}
+{
+	"name": {
+		"en": "Customers Says"
+	},
+	"class": "customers-says",
+	"max_blocks": 2,
+	"presets": [
+		{
+			"name": {
+			"en": "Customers Says"
+		},
+			"category": {
+				"en": "Sections"
+			}
+		}
+	],
+	"settings": [
+		{
+			"type": "text",
+			"id": "section-title",
+			"label": {
+				"en": "Section title"
+			}
+		}
+	],
+	"blocks": [
+		{
+			"type": "image-customers",
+			"name": {
+				"en": "Customer"
+			},
+			"settings": [
+					{
+						"type": "image_picker",
+						"id": "img",
+						"label": {
+							"en": "Customer image"
+						},
+						"info": {
+							"en": "1000 x 500px recommended"
+						}
+					},
+					{
+						"type": "text",
+						"id": "message",
+						"label": {
+							"en": "Customer message"
+						}
+					},
+					{
+						"type": "text",
+						"id": "name",
+						"label": {
+							"en": "Customer name"
+						}
+					},
+					{
+						"type": "text",
+						"id": "category",
+						"label": {
+							"en": "Customer category"
+						}
+					}
+				]
+			}
+		]
+	}
+{% endschema %}

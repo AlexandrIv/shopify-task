@@ -72,76 +72,46 @@
 </section>
 
 {% schema %}
-{
-	"name": {
-		"en": "Summer Collection"
-	},
-	"class": "summer-collection-section",
-	"max_blocks": 3,
-	"presets": [
 	{
 		"name": {
-		"en": "Summer Collection"
-	},
-	"category": {
-	"en": "Sections"
-	},
-	"blocks": [
-	{
-		"type": "image"
+			"en": "Summer Collection"
+		},
+		"class": "summer-collection-section",
+		"max_blocks": 8,
+		"presets": [
+			{
+				"name": {
+					"en": "Summer Collection"
+				},
+				"category": {
+					"en": "Sections"
+				},
+				"blocks": [
+			        {
+			          "type": "collection"
+			        },
+			        {
+			          "type": "collection"
+			        }
+			    ],
+			}
+		],
+		"blocks": [
+			{
+				"type": "collection",
+				"name": {
+					"en": "Collection",
+				},
+				"settings": [
+					{
+						"id": "collection",
+						"type": "collection",
+						"label": {
+							"en": "Collection",
+						}
+					}
+				]
+			}
+		]
 	}
-	]
-	}
-],
-"blocks": [
-{
-	"type": "image",
-	"name": {
-	"en": "Summer Collection"
-},
-"settings": [
-{
-	"type": "text",
-	"id": "title",
-	"label": {
-	"en": "Title summer collection"
-}
-},
-{
-	"type": "text",
-	"id": "content",
-	"label": {
-	"en": "Text summer collection"
-}
-},
-{
-	"type": "image_picker",
-	"id": "slide",
-	"label": {
-	"en": "Image"
-},
-"info": {
-"en": "1000 x 500px recommended"
-}
-},
-{
-	"type": "color",
-	"id": "background",
-	"label": {
-	"en": "Background"
-},
-"default": "#d9bf8f"
-}
-]
-}
-]
-}
-
-
 {% endschema %}
-
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}

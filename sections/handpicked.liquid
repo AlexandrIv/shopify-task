@@ -2,7 +2,7 @@
 	<div class="contain">
 		<div class="row jcc aic">
 			<div class="section-title">
-				<h2><span>Hand Picked</span></h2>
+				<h2><span>{{ section.settings.section-title }}</span></h2>
 			</div>
 		</div>
 		<div class="row jcsb">
@@ -51,74 +51,80 @@
 	</div>
 </section>
 
-
 {% schema %}
 {
 	"name": {
-	"en": "Hand Picked"
-},
-"class": "handpicked-section",
-"max_blocks": 3,
-"presets": [
-{
-	"name": {
-	"en": "Hand Picked"
-},
-"category": {
-"en": "Sections"
-},
-"blocks": [
-{
-	"type": "image"
+		"en": "Hand Picked"
+	},
+	"class": "handpicked-section",
+	"max_blocks": 3,
+	"presets": [
+		{
+			"name": {
+				"en": "Hand Picked"
+			},
+			"category": {
+				"en": "Sections"
+			},
+			"blocks": [
+				{
+					"type": "image"
+				}
+			]
+		}
+	],
+	"settings": [
+		{
+			"type": "text",
+			"id": "section-title",
+			"label": {
+				"en": "Section title"
+			}
+		}
+	],
+	"blocks": [
+		{
+			"type": "image",
+			"name": {
+				"en": "Hand Picked"
+			},
+			"settings": [
+				{
+					"type": "text",
+					"id": "title",
+					"label": {
+						"en": "Title handpicked"
+					}
+				},
+				{
+					"type": "text",
+					"id": "content",
+					"label": {
+						"en": "Text handpicked"
+					}
+				},
+				{
+					"type": "image_picker",
+					"id": "slide",
+					"label": {
+						"en": "Image"
+					},
+					"info": {
+						"en": "1000 x 500px recommended"
+					}
+				},
+				{
+					"type": "color",
+					"id": "background",
+					"label": {
+						"en": "Background"
+					},
+					"default": "#d9bf8f"
+				}
+			]
+		}
+	]
 }
-]
-}
-],
-"blocks": [
-{
-	"type": "image",
-	"name": {
-	"en": "Hand Picked"
-},
-"settings": [
-{
-	"type": "text",
-	"id": "title",
-	"label": {
-	"en": "Title handpicked"
-}
-},
-{
-	"type": "text",
-	"id": "content",
-	"label": {
-	"en": "Text handpicked"
-}
-},
-{
-	"type": "image_picker",
-	"id": "slide",
-	"label": {
-	"en": "Image"
-},
-"info": {
-"en": "1000 x 500px recommended"
-}
-},
-{
-	"type": "color",
-	"id": "background",
-	"label": {
-	"en": "Background"
-},
-"default": "#d9bf8f"
-}
-]
-}
-]
-}
-
-
 {% endschema %}
 
 {% stylesheet %}

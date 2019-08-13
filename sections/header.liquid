@@ -130,10 +130,9 @@
     <div class="row jcsb aic">
       <nav class="header-navbar">
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Gallery</a></li>
-          <li><a href="#">Categories</a></li>
-          <li><a href="#">Pages</a></li>
+          {% for link in linklists.main-menu.links %}
+          <li><a href= "{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
         </ul>
       </nav>
       <div class="logo-block">
@@ -199,10 +198,9 @@
 </header>
 <div class="mmenu" id="mmenu">
   <ul>
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Gallery</a></li>
-    <li><a href="#">Categories</a></li>
-    <li><a href="#">Pages</a></li>
+    {% for link in linklists.main-menu.links %}
+      <li><a href= "{{ link.url }}">{{ link.title }}</a></li>
+    {% endfor %}
   </ul>
 </div>
 

@@ -5,7 +5,7 @@
   handlebar.js template tags as available hooks.
 
 {% endcomment %}
-  <script id="cartTemplate" type="text/template">
+ {% comment %} <script id="cartTemplate" type="text/template">
   {% raw %}
     <form action="/cart" method="post" class="cart-form" novalidate>
       <div class="ajaxifyCart--products">
@@ -54,7 +54,7 @@
       </div>
     </form>
   {% endraw %}
-  </script>
+  </script>{% endcomment %}
   <script id="drawerTemplate" type="text/template">
   {% raw %}
     <div id="ajaxifyDrawer" class="ajaxify-drawer">
