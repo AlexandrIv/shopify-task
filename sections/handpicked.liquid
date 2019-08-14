@@ -6,7 +6,136 @@
 			</div>
 		</div>
 		<div class="row jcsb">
-			<div class="cart-col left">
+			
+			{% for block in section.blocks %}
+	        	{%- assign featured = block.settings.hand-picked %}
+	        	{%- assign position = block.settings.position %}
+
+	        	{% if position == "left-top" or position == "left-bottom" %}
+	        		<div class="cart-col left">
+						{% if position == "left-top" %}
+							<div class="cart-box">
+								<div class="border">
+									<div class="owerlay-box"></div>
+									<img src="{{ 'img-shop.png' | asset_url }}" alt="">
+									<a href="#">Shop now</a>
+								</div>
+							</div>	
+						{% endif %}
+	        			{% if position == "left-bottom" %}
+		        			<div class="cart-box">
+								<div class="border">
+									<div class="owerlay-box"></div>
+									<img src="{{ 'img-shop.png' | asset_url }}" alt="">
+									<a href="#">Shop now</a>
+								</div>
+							</div>
+	        			{% endif %}
+	        		</div>
+	        	{% endif %}
+
+
+	        	{% if position == "center" %}
+	        		<div class="cart-col center">
+						<div class="cart-box cart-box-center">
+							<div class="border">
+								<div class="owerlay-box"></div>
+								<img src="{{ 'girl.png' | asset_url }}" alt="">
+								<a href="#">Shop now</a>
+							</div>
+						</div>
+					</div>
+	        	{% endif %}
+
+
+	        	{% if position == "right-top" or position == "right-bottom" %}
+	        		<div class="cart-col right">
+						{% if position == "right-top" %}
+							<div class="cart-box">
+								<div class="border">
+									<div class="owerlay-box"></div>
+									<img src="{{ 'img-shop.png' | asset_url }}" alt="">
+									<a href="#">Shop now</a>
+								</div>
+							</div>	
+						{% endif %}
+	        			{% if position == "right-bottom" %}
+		        			<div class="cart-box">
+								<div class="border">
+									<div class="owerlay-box"></div>
+									<img src="{{ 'img-shop.png' | asset_url }}" alt="">
+									<a href="#">Shop now</a>
+								</div>
+							</div>
+	        			{% endif %}
+	        		</div>
+	        	{% endif %}
+
+
+
+	        	
+
+
+	        	{% comment %}{% case position %}
+	        		{% when "left-top" %}
+						<div class="cart-col left">
+							<div class="cart-box">
+								<div class="border">
+									<div class="owerlay-box"></div>
+									<img src="{{ 'img-shop.png' | asset_url }}" alt="">
+									<a href="#">Shop now</a>
+								</div>
+							</div>
+						</div>
+					{% when "left-bottom" %}
+						<div class="cart-col left">
+							<div class="cart-box">
+								<div class="border">
+									<div class="owerlay-box"></div>
+									<img src="{{ 'img-shop.png' | asset_url }}" alt="">
+									<a href="#">Shop now</a>
+								</div>
+							</div>
+						</div>
+					{% when "center" %}
+						<div class="cart-col center">
+							<div class="cart-box cart-box-center">
+								<div class="border">
+									<div class="owerlay-box"></div>
+									<img src="{{ 'girl.png' | asset_url }}" alt="">
+									<a href="#">Shop now</a>
+								</div>
+							</div>
+						</div>
+					{% when "right-top" %}
+						<div class="cart-col right">
+							<div class="cart-box">
+								<div class="border">
+									<div class="owerlay-box"></div>
+									<img src="{{ 'img-shop.png' | asset_url }}" alt="">
+									<a href="#">Shop now</a>
+								</div>
+							</div>
+						</div>
+					{% when "right-bottom" %}
+						<div class="cart-col right">
+							<div class="cart-box">
+								<div class="border">
+									<div class="owerlay-box"></div>
+									<img src="{{ 'img-shop.png' | asset_url }}" alt="">
+									<a href="#">Shop now</a>
+								</div>
+							</div>
+						</div>
+					{% endcase %}{% endcomment %}
+
+			  <!-- <li>
+			  <img src="{{ product.featured_image | product_img_url: 'medium' }}" alt="{{ product.title | escape  }}" />    
+			  <a class="shop-now" href="{{ product.url }}">{{ product.title | escape  }}</a>                              
+			  </li> -->  
+			{% endfor %}
+			
+			{% comment %}<div class="cart-col left">
 				<div class="cart-box">
 					<div class="border">
 						<div class="owerlay-box"></div>
@@ -46,7 +175,11 @@
 						<a href="#">Shop now</a>
 					</div>
 				</div>
-			</div>
+			</div>{% endcomment %}
+
+
+
+
 		</div>
 	</div>
 </section>
@@ -57,7 +190,7 @@
 		"en": "Hand Picked"
 	},
 	"class": "handpicked-section",
-	"max_blocks": 3,
+	"max_blocks": 5,
 	"presets": [
 		{
 			"name": {
@@ -68,7 +201,13 @@
 			},
 			"blocks": [
 				{
-					"type": "image"
+					"type": "collection"
+				},
+				{
+					"type": "collection"
+				},
+				{
+					"type": "collection"
 				}
 			]
 		}
@@ -84,51 +223,59 @@
 	],
 	"blocks": [
 		{
-			"type": "image",
+			"type": "collection",
 			"name": {
 				"en": "Hand Picked"
 			},
 			"settings": [
 				{
-					"type": "text",
-					"id": "title",
+					"type": "select",
+					"id": "position",
 					"label": {
-						"en": "Title handpicked"
-					}
-				},
-				{
-					"type": "text",
-					"id": "content",
-					"label": {
-						"en": "Text handpicked"
-					}
-				},
-				{
-					"type": "image_picker",
-					"id": "slide",
-					"label": {
-						"en": "Image"
+						"en": "Select position"
 					},
-					"info": {
-						"en": "1000 x 500px recommended"
-					}
+					"options": [
+						{
+							"value": "left-top",
+							"label": {
+								"en": "Left top"
+							}
+						},
+						{
+							"value": "left-bottom",
+							"label": {
+								"en": "Left bottom"
+							}
+						},
+						{
+							"value": "center",
+							"label": {
+								"en": "Center"
+							}
+						},
+						{
+							"value": "right-top",
+							"label": {
+								"en": "Right top"
+							}
+						},
+						{
+							"value": "right-bottom",
+							"label": {
+								"en": "Right bottom"
+							}
+						}
+					]
 				},
 				{
-					"type": "color",
-					"id": "background",
+					"id": "hand-picked",
+					"type": "collection",
 					"label": {
-						"en": "Background"
-					},
-					"default": "#d9bf8f"
+						"en": "Hand Picked Collection"
+					}
 				}
 			]
-		}
+		},
 	]
 }
 {% endschema %}
-
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}
