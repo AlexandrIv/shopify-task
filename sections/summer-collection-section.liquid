@@ -6,7 +6,23 @@
 			</div>
 		</div>
 		<div class="row fww jcsb">
-			{% if collections.summer-collection.products.size > 0 %}
+			{% for block in section.blocks.collection.settings.summer-collection %}
+				{% comment %}{% for product in block.collection.summer-collection.products %}
+					<p>{{ product.title | escape  }}</p>
+				{% endfor %}{% endcomment %}
+			{% endfor %}
+
+			{% for block in section.blocks %}
+		    	{%- assign products = block.settings.summer-collection.products %}
+		    	{% for product in products %}
+		    		<p>{{ product.title }}</p>
+		    	{% endfor %}
+		    	
+		    {% endfor %}
+
+			
+
+			{% comment %}{% if collections.summer-collection.products.size > 0 %}
 			{% for product in collections.summer-collection.products %}
 				<div class="collection-cart">
 				  <div class="owerlay"></div>
@@ -20,7 +36,7 @@
 				  </div>
 				</div>
 			{% endfor %}
-			{% endif %}
+			{% endif %}{% endcomment %}
 		</div>
 	</div>
 </section>
@@ -71,13 +87,6 @@
 				"en": "Summer Collection"
 			},
 			"settings": [
-				{
-					"type": "text",
-					"id": "percent",
-					"label": {
-						"en": "Sale percent collection"
-					}
-				},
 				{
 					"id": "summer-collection",
 					"type": "collection",

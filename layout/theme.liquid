@@ -28,8 +28,7 @@
 
   <!-- CSS ================================================== -->
   {{ 'font-awesome.css' | asset_url | stylesheet_tag }}
-  
- {% comment %} {{ 'theme.scss.css' | asset_url | stylesheet_tag }}{% endcomment %}
+  {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
 
   {{ 'custom.scss.css' | asset_url | stylesheet_tag }}
   {{ 'slick.css' | asset_url | stylesheet_tag }}
@@ -51,9 +50,8 @@
 
   <script src="{{ 'lazysizes.min.js' | asset_url }}" async="async"></script>
   <script src="{{ 'vendor.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.2/jquery.modal.js" defer="defer"></script>
   <script src="{{ 'custom.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'slick.js' | asset_url }}" defer="defer"></script>
 
 
