@@ -10,4 +10,40 @@ $(document).ready(function(){
 		arrows: false,
 		slidesToScroll: 1
 	});
+
+
+
+
+	$('.add-all').on('click', function() {
+		jQuery.get('/admin/api/2019-04/products/count.json', function(counts){
+			var page = Math.ceil(counts.count/250);
+			for(let i = 0; i < page; i++ ) {
+				jQuery.get('/admin/api/2019-04/products.json?limit=250&page='+i, function(data){
+					$.each( data.products, function( key, value ) {
+						if( value.variants.inventory_quantity > 0 && value.variants.length > 0  ) {
+							$.each( value.variants, function( key, val ) {
+								jQuery.post('/cart/add.js', { quantity: 1, id: val.id });
+							});
+						} else {
+							jQuery.post('/cart/add.js', { quantity: 1, id: value.variants[0].id });
+						}
+					});
+				});
+			}
+		});
+
+
+
+	});
+	
+
+
+
+
+
+
+
+
+
+
 });

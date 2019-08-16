@@ -6,10 +6,13 @@
       </div>
       <div class="top-nav">
         <ul>
-          <li><a href="#">Welcom msg!</a></li>
-          <li><a href="#">My account</a></li>
+          {% for link in linklists.topline-menu.links %}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+         {% comment %} <li><a href="#">My account</a></li>
           <li><a href="#">My whistlist</a></li>
-          <li><a href="#">Login</a></li>
+          <li><a href="#">Login</a></li>{% endcomment %}
+          <li><a href="#" class="add-all">Add all products to cart</a></li>
         </ul>
       </div>
     </div>

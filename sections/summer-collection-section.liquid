@@ -6,37 +6,19 @@
 			</div>
 		</div>
 		<div class="row fww jcsb">
-			{% for block in section.blocks.collection.settings.summer-collection %}
-				{% comment %}{% for product in block.collection.summer-collection.products %}
-					<p>{{ product.title | escape  }}</p>
-				{% endfor %}{% endcomment %}
-			{% endfor %}
-
 			{% for block in section.blocks %}
-		    	{%- assign products = block.settings.summer-collection.products %}
-		    	{% for product in products %}
-		    		<p>{{ product.title }}</p>
-		    	{% endfor %}
-		    	
-		    {% endfor %}
-
-			
-
-			{% comment %}{% if collections.summer-collection.products.size > 0 %}
-			{% for product in collections.summer-collection.products %}
+				{%- assign featured = block.settings.summer-collection -%}
+				{% for product in collections[featured].products %}
 				<div class="collection-cart">
-				  <div class="owerlay"></div>
-				  {% if section.settings.percent-sale != "" %}
-				  	<span class="discount">{{ section.settings.percent-sale }}<span class="percent">%</span></span>
-				  {% endif %}
-				  <h3 class="title-collection"><a href="{{ product.url }}">{{ product.title | escape  }}</a></h3>
-				  <img src="{{ product.featured_image | product_img_url: 'medium' }}" alt="">
-				  <div class="add-button">
-				    <a href="{{ product.url }}"><span>+ Add to cart</span></a>
-				  </div>
+					<div class="owerlay"></div>
+					<h3 class="title-collection"><a href="{{ product.url }}">{{ product.title | escape  }}</a></h3>
+					<img src="{{ product.featured_image | product_img_url: 'medium' }}" alt="">
+					<div class="add-button">
+						<a href="{{ product.url }}"><span>+ Add to cart</span></a>
+					</div>
 				</div>
+				{% endfor %}
 			{% endfor %}
-			{% endif %}{% endcomment %}
 		</div>
 	</div>
 </section>
@@ -87,6 +69,13 @@
 				"en": "Summer Collection"
 			},
 			"settings": [
+				{
+					"type": "text",
+					"id": "test-text",
+					"label": {
+						"en": "Test Text"
+					}
+				},
 				{
 					"id": "summer-collection",
 					"type": "collection",
